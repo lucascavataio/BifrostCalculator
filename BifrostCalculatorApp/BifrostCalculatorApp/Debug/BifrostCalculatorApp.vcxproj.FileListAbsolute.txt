@@ -1,0 +1,9 @@
+F:\IU\Cpp\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.vcxproj.AssemblyReference.cache
+F:\IU\Cpp\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.CalculatorForm.resources
+F:\IU\Cpp\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.vcxproj.GenerateResource.cache
+F:\IU\C_CppCourse\CalculatorProject\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.vcxproj.AssemblyReference.cache
+F:\IU\C_CppCourse\CalculatorProject\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.CalculatorForm.resources
+F:\IU\C_CppCourse\CalculatorProject\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.vcxproj.GenerateResource.cache
+F:\IU\C_CppCourse\CalculatorProject\BifrostCalculator\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.vcxproj.AssemblyReference.cache
+F:\IU\C_CppCourse\CalculatorProject\BifrostCalculator\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.CalculatorForm.resources
+F:\IU\C_CppCourse\CalculatorProject\BifrostCalculator\BifrostCalculatorApp\BifrostCalculatorApp\Debug\BifrostCalculatorApp.vcxproj.GenerateResource.cache

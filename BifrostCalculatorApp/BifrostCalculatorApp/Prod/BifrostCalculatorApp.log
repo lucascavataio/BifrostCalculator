@@ -1,0 +1,9 @@
+﻿  pch.cpp
+  AssemblyInfo.cpp
+  BifrostCalculatorApp.cpp
+  CalculatorForm.cpp
+  Bifrost.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Generating Code...
+  AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  BifrostCalculatorApp.vcxproj -> F:\IU\Cpp\BifrostCalculatorApp\Prod\BifrostCalculatorApp.exe

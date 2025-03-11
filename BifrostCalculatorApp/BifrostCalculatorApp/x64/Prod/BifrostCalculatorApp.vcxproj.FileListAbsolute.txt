@@ -1,0 +1,3 @@
+F:\IU\Cpp\BifrostCalculatorApp\BifrostCalculatorApp\x64\Prod\BifrostCalculatorApp.vcxproj.AssemblyReference.cache
+F:\IU\Cpp\BifrostCalculatorApp\BifrostCalculatorApp\x64\Prod\BifrostCalculatorApp.CalculatorForm.resources
+F:\IU\Cpp\BifrostCalculatorApp\BifrostCalculatorApp\x64\Prod\BifrostCalculatorApp.vcxproj.GenerateResource.cache

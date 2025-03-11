@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  AssemblyInfo.cpp
+  BifrostCalculatorApp.cpp
+  CalculatorForm.cpp
+F:\IU\Cpp\BifrostCalculatorApp\BifrostCalculatorApp\CalculatorForm.cpp(245,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Bifrost.cpp
+F:\IU\Cpp\BifrostCalculatorApp\BifrostCalculatorApp\Private\Bifrost.cpp(93,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Generating Code...
