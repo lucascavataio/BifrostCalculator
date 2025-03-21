@@ -4,6 +4,23 @@
 
 The **Bifrost Calculator** is a Windows desktop app that talks to a microcontroller through **serial communication** to solve mathematical expressions. This document gives an overview of how the software is structured, along with instructions to build, run, and test it.
 
+<br>
+
+## Index
+- [Introduction](#introduction)
+- [Software Architecture Overview](#software-architecture-overview)
+- [Project Structure](#project-structure)
+- [Key Components](#key-components)
+  - [Windows Desktop Application](#windows-desktop-application)
+  - [Microcontroller Firmware](#microcontroller-firmware)
+- [Compiling and Running the Software](#compiling-and-running-the-software)
+  - [Compiling and Running the Windows Application](#compiling-and-running-the-windows-application)
+  - [Uploading the Sketch to the Microcontroller](#uploading-the-sketch-to-the-microcontroller)
+  - [Testing the Connection](#testing-the-connection)
+- [Code Documentation](#code-documentation)
+
+<br>
+
 ## **Software Architecture Overview**
 
 The project is made up of **two main parts**:
@@ -238,3 +255,48 @@ If the **Serial Monitor is open in Arduino IDE**, the **Bifrost Calculator will 
 You’ve successfully **installed TinyExpr, uploaded the sketch, and tested the setup**. Now you’re ready to use the **Bifrost Calculator** with your Windows application.
 
 If you encounter issues, check your board’s COM port settings, make sure TinyExpr is installed correctly, and try restarting Arduino IDE.
+
+<br>
+
+---
+
+<br>
+
+## Code Documentation
+
+Below is a brief overview of the key files you provided and some of the important functions contained within. This section will help maintainers and future developers quickly understand each file's role and its primary functions.
+
+### **Bifrost.h**
+- **Class `Bifrost`:** Manages serial communication from the Windows application to the microcontroller.
+  - **`Open(LPCWSTR portName, DWORD baudRate)`:** Opens the specified COM port and configures its parameters (baud rate, etc.).  
+  - **`Close()`:** Closes the COM port if it is open.  
+  - **`WriteData(const std::string &data)`:** Sends string data through the open serial port.  
+  - **`ReadData(DWORD numBytes)`:** Reads up to `numBytes` from the serial port and returns it as a `std::string`.
+
+### **Bifrost.cpp**
+- **Implements the `Bifrost` class** declared in `Bifrost.h`.  
+  - **Constructor `Bifrost::Bifrost()`:** Initializes the serial handle to an invalid state (`INVALID_HANDLE_VALUE`).  
+  - **`bool Bifrost::Open(...)`:** Uses the Windows API to open and configure the serial port. If initialization fails, it cleans up and returns `false`.  
+  - **`void Bifrost::Close()`:** Safely closes the handle with `CloseHandle()` if valid.  
+  - **`bool Bifrost::WriteData(...)`:** Writes the provided string to the port; returns success status.  
+  - **`std::string Bifrost::ReadData(...)`:** Allocates a buffer to read from the port, reads up to `numBytes`, null-terminates, and returns it.
+
+### **CalculatorForm.h**
+- **`CalculatorForm` class:** A Windows Forms application (C++/CLI) that acts as the GUI for the calculator.  
+  - **Properties like `LastResult`, `MathFunctions`, `MathOperators`:** Store the last calculation result and accepted functions/operators.  
+  - **UI Handling Methods:** 
+    - **`CalculatorForm()` constructor**: Initializes the form, sets up event handlers, and configures default UI settings.  
+    - **`GetCurrentExpression()`, `GetCaretPos()`, `SetCaretPos(...)`:** Manage text input and caret position within the calculator's text box.  
+    - **`ClearInput()`:** Clears the current input and the list of past operations.  
+    - **`GetTargetCom()`, `GetTargetBaudrate()`:** Retrieve the COM port and baud rate from the form for connecting to the microcontroller.
+
+### **CalculatorForm.cpp**
+- **Implements the methods declared in `CalculatorForm.h`.**  
+  - **`int main(array<String^>^ args)`:** Initializes and runs the Windows Forms application.  
+  - **`CalculatorForm::CalculatorButton_Click(...)`:** Handles button inputs (e.g., digits, operators, special functions) and updates the input box.  
+  - **`CalculatorForm::SendButton_Click(...)`:** The core routine for sending the expression to the microcontroller:  
+    1. Opens the selected COM port (via `Bifrost::Open`).  
+    2. Writes the expression.  
+    3. Reads back the result.  
+    4. Closes the port and updates the display with the returned value.  
+  - **`OperationsListBox` event handlers**: Let users select old results to auto-fill the input field.
